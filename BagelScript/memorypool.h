@@ -41,8 +41,6 @@ template <int T>
 class _BKE_allocator;
 _BKE_allocator<1> **allocator_array();
 
-//分配时，类的index设为next，（debug下置next为-1）
-//释放时，要销毁的指针成为下次分配的指针
 //4*T bytes
 template <int T>
 class _BKE_allocator
@@ -65,7 +63,7 @@ private:
 		__helper *next;
 		__helper_array *group;
 #ifdef _DEBUG
-		//是否可用/是否可以分配
+		//whether can be used for malloc, or is malloced
 		bkplong valid;
 		bkplong magic;
 #endif
@@ -79,7 +77,7 @@ private:
 		__helper *freeList;
 		__helper_array *last;
 		__helper_array *next;
-		//这个放在最后保证对任何UNIT上面的几个成员的偏移都是固定的
+		//put this one last th ensure the items above have fixed offset no matter the actual value of T is
 		__helper ptr[BLOCKSIZE];
 	};
 
