@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31206.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UnitTest", "UnitTest\UnitTest.vcxproj", "{1374FAA0-99BE-4CAA-8802-D4CE9BE688D3}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BagelScript", "BagelScript\BagelScript.vcxproj", "{BB4FA23E-46B5-484A-AFC9-6FCBFDFF9051}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1374FAA0-99BE-4CAA-8802-D4CE9BE688D3}.Debug|Win32.ActiveCfg = Debug|Win32
+		{1374FAA0-99BE-4CAA-8802-D4CE9BE688D3}.Debug|Win32.Build.0 = Debug|Win32
+		{1374FAA0-99BE-4CAA-8802-D4CE9BE688D3}.Release|Win32.ActiveCfg = Release|Win32
+		{1374FAA0-99BE-4CAA-8802-D4CE9BE688D3}.Release|Win32.Build.0 = Release|Win32
+		{BB4FA23E-46B5-484A-AFC9-6FCBFDFF9051}.Debug|Win32.ActiveCfg = Debug|Win32
+		{BB4FA23E-46B5-484A-AFC9-6FCBFDFF9051}.Debug|Win32.Build.0 = Debug|Win32
+		{BB4FA23E-46B5-484A-AFC9-6FCBFDFF9051}.Release|Win32.ActiveCfg = Release|Win32
+		{BB4FA23E-46B5-484A-AFC9-6FCBFDFF9051}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
