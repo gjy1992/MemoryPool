@@ -35,7 +35,8 @@
 #pragma push_macro("new")
 #undef new
 
-#define SMALL (128 / 4)
+#define SMALL 32
+#define MEMORY_UNIT 8
 
 template <int T>
 class _BKE_allocator;
@@ -48,7 +49,7 @@ class _BKE_allocator
 private:
 	enum
 	{
-		UNIT = 4 * T,
+		UNIT = MEMORY_UNIT * T,
 		BLOCK = 14,
 		BLOCKSIZE = ((1 << BLOCK) - 40) / UNIT,
 		BLOCKMEMSIZE = 1 << BLOCK,
@@ -164,7 +165,7 @@ public:
 
 	bkpulong getallocsize()
 	{
-		return capacity * sizehelper;
+		return capacity / blocksize * sizehelperarray;
 	}
 
 	bkpulong getusedsize()
@@ -459,7 +460,7 @@ template <class T>
 class BKE_allocator
 {
 private:
-	_BKE_allocator<(sizeof(T) + 3) / 4> *al;
+	_BKE_allocator<(sizeof(T) + MEMORY_UNIT - 1) / MEMORY_UNIT> *al;
 
 	struct __helper
 	{
@@ -556,6 +557,3 @@ public:
 
 #pragma pack(pop)
 
-#ifdef _DEBUG_MEM
-#include <debug_new.h>
-#endif
