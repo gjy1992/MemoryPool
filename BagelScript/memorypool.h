@@ -182,7 +182,7 @@ public:
 	{
 		__helper_array *iter = head;
 		//去除第一个保留位
-		kbpulong start = (nkpulong)-1;
+		bkpulong start = (bkpulong)-1;
 		while (iter)
 		{
 			start += iter->count;
