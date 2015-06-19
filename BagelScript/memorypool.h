@@ -70,6 +70,16 @@ private:
 #endif
 	};
 
+	struct __helper_array_header
+	{
+		bkpulong count;
+		__helper *endpos;
+		__helper *curpos;
+		__helper *freeList;
+		__helper_array *last;
+		__helper_array *next;
+	};
+
 	struct __helper_array
 	{
 		bkpulong count;
@@ -142,13 +152,13 @@ public:
 		index = 0;
 		capacity = 0;
 		sizehelper = sizeof(__helper);
-		blocksize = ((1 << BLOCK) - 40) / sizehelper;
-		//sizehelperarray = sizeof(__helper_array);
+		blocksize = (BLOCKMEMSIZE - sizeof(__helper_array_header)) / sizehelper;
+		sizehelperarray = sizeof(__helper_array);
 		if (T <= SMALL)
 		{
 			assert(!allocator_array()[T]);
 			allocator_array()[T] = (_BKE_allocator<1> *)this;
-			cur = head = (__helper_array*)malloc(sizeof(__helper_array));
+			cur = head = (__helper_array*)malloc(BLOCKMEMSIZE);
 			cur->count = 1;
 #ifdef _DEBUG
 			for (bkpulong i = 0; i < blocksize; i++)
