@@ -484,7 +484,7 @@ private:
 public:
 	BKE_allocator()
 	{
-		al = get_allocator<(sizeof(T) + 3) / 4>();
+		al = get_allocator<(sizeof(T) + MEMORY_UNIT - 1) / MEMORY_UNIT>();
 	}
 
 	T* allocate()
