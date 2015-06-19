@@ -240,6 +240,8 @@ public:
 
 	void deallocate(void* p)
 	{
+		if (!p)
+			return;
 		if (T <= SMALL)
 		{
 #ifdef _DEBUG
@@ -312,6 +314,8 @@ public:
 
 	void dynamic_deallocate(void* p)
 	{
+		if (!p)
+			return;
 		if (unit <= SMALL)
 		{
 #ifdef _DEBUG
